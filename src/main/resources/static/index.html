@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="libs/jquery.min_3.6.4.js"></script>
+    <script src="scripts/index.js"></script>
+    <title>Home</title>
+</head>
+
+<body>
+    <header>
+        <h1>SafeStock</h1>
+
+        <div class="slogan">
+          <span class="troca-palavra"></span>
+        </div>
+    </header>
+    <main>        
+        <div class="box-entrar">
+            <h2>Já possui conta?</h2>
+            <form>
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" placeholder="ex: seunome@gmail.com" required>
+
+                <label for="password">Senha</label>
+                <input type="password" name="password" id="password" placeholder="Sua melhor senha" required>
+
+                <button type="submit" name="submit" id="entrarConta">Entrar</button>
+            </form>
+        </div>
+
+
+
+        <div class="box-criar">
+            <h2>Não possui conta?</h2>
+
+            <form action="/backend/cadastro.php" method="POST">
+                <label for="name">Nome</label>
+                <input type="text" name="name" id="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" name="c-email" id="c-email" required>
+
+                <label for="data_nascimento">Data de Nascimento:</label>
+                <input type="date" id="data_nascimento" name="data_nascimento" required>
+
+                <label for="password">Senha</label>
+                <input type="password" name="c-password" id="c-password" required>
+
+                <button type="submit" name="submit2" id="criarConta">Criar conta</button>
+
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>
