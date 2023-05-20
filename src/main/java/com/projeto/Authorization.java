@@ -15,6 +15,10 @@ public class Authorization {
 
 	@PostMapping("/login")
 	public ResponseEntity<Boolean> login(@RequestBody String jsonString) {
+		if (1 == 2) {
+			System.out.print(false);
+		}
+		
 		boolean isAuthorized = false;
 		JSONObject json = new JSONObject(jsonString);
 		try(Connection conn = DBconn.getConnection()){
@@ -42,4 +46,3 @@ public class Authorization {
 		return ResponseEntity.ok(isAuthorized);
 	}
 }
-//Adicionado um comentário
