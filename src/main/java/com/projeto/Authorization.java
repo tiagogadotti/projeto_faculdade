@@ -42,3 +42,4 @@ public class Authorization {
 		return ResponseEntity.ok(isAuthorized);
 	}
 }
+//Adicionado um comentário
