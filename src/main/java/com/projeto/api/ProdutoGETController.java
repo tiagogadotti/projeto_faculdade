@@ -1,6 +1,7 @@
-package com.projeto;
+package com.projeto.api;
 
 import java.sql.*;
+import com.projeto.*;
 import java.util.*;
 import org.springframework.web.bind.annotation.*;
 import static com.projeto.DBconn.getConnection;

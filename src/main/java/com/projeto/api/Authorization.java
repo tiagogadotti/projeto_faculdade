@@ -1,7 +1,8 @@
-package com.projeto;
+package com.projeto.api;
 
 import java.sql.*;
 import java.sql.SQLException;
+import com.projeto.*;
 
 import org.json.*;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Authorization {
-
 	@PostMapping("/login")
 	public ResponseEntity<Boolean> login(@RequestBody String jsonString) {
 		boolean isAuthorized = false;
@@ -30,11 +30,6 @@ public class Authorization {
 				System.out.println("Login com sucesso: " + "email: " + json.getString("email") + " senha: " + json.getString("senha"));
 				isAuthorized =  true;
 			}
-//			while(r.next()) {
-//				if (r.getString("email") != json.getString("email")) return false;
-//				if (r.getString("senha") != json.getString("senha")) return false;
-//				isAuthorized = true;
-//			}
 			
 		}catch(SQLException e) {
 			e.printStackTrace();

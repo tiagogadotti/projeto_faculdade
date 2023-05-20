@@ -1,31 +1,32 @@
-package com.projeto;
+package com.projeto.api;
 
 import java.sql.*;
 import java.util.*;
+import com.projeto.*;
 
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class CategoriaGetController {
+public class MarcaGetController {
 	
-	@GetMapping("getAllCategoria")
-	public List<Categoria> getAllCategoria(){
-		List<Categoria> categorias = new ArrayList<>();
+	@GetMapping("getAllMarca")
+	public List<Marca> getAllCategoria(){
+		List<Marca> marcas = new ArrayList<>();
 		
 		try (Connection conn = DBconn.getConnection()){
-			String sql = "SELECT * FROM categoria c ORDER BY id ASC";
+			String sql = "SELECT * FROM marca c ORDER BY id ASC";
 			Statement st = conn.createStatement();
 			ResultSet r = st.executeQuery(sql);
 			while (r.next()) {
-				Categoria c = new Categoria(r.getLong("id"), r.getString("nome"));
-				categorias.add(c);
+				Marca m = new Marca(r.getLong("id"), r.getString("nome"));
+				marcas.add(m);
 			}			
 			
 		}catch(SQLException e) {
 			System.out.print("Problemas na conexção: " + e.getStackTrace());			
 		}
 		
-		return categorias;
+		return marcas;
 		
 		
 		
