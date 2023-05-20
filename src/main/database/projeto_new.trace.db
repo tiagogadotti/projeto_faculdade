@@ -1,9 +1,0 @@
-2023-05-01 20:35:34 jdbc[13]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USUARIO" not found (this database is empty); SQL statement:
-select * from usuario WHERE email = ? AND senha = ? [42104-214]
-2023-05-01 21:00:53 jdbc[13]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USUARIO" not found (this database is empty); SQL statement:
-select * from usuario WHERE email = ? AND senha = ? [42104-214]
-2023-05-01 21:00:57 jdbc[14]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USUARIO" not found (this database is empty); SQL statement:
-select * from usuario WHERE email = ? AND senha = ? [42104-214]
