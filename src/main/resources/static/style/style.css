@@ -1,0 +1,130 @@
+@import url(/style/colors.css);
+
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+
+    font-family: sans-serif;
+    color: var(--cor-fonte);
+
+    
+}
+
+body {
+    background-color: var(--cor-de-fundo2);
+}
+
+header  {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 1rem;
+   margin-top: 4rem;
+}
+
+header a {
+    text-decoration: none;
+    color: var(--texto-cor);
+    font-size: xx-large;
+}
+
+header a:hover {
+    color: rgb(87, 84, 90);
+}
+
+main {
+    display: flex;
+    gap: 2rem;
+
+    margin-top: 9rem;
+}
+
+main h2 {
+    margin-top: 2.5rem;
+}
+
+.box-entrar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    width: 50%;
+    height: auto;
+
+    margin: 2% 1%;
+    padding: 0 0;
+    
+    background-color: aliceblue;
+    border-radius: 25px;
+}
+
+.box-entrar form {
+    display: flex;
+    flex-direction: column;
+
+  
+    width: 50%;
+    height: auto;
+}
+
+.box-criar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    width: 50%;
+    height: auto;
+
+   
+    margin: 2% 2%;
+    
+    background-color: aliceblue;
+    border-radius: 25px;
+}
+
+.box-criar form {
+    display: flex;
+    flex-direction: column;
+
+    
+    width: 50%;
+    height: auto;
+}
+
+label {
+    margin-top: 30px;
+}
+
+input {
+    border-radius: 5px;
+
+    height: 3rem;
+}
+
+button {
+    display: block;
+    margin: 1rem auto;
+
+    height: 2rem;
+    padding: 0 1rem;
+
+    border-radius: 10px;
+}
+
+
+.troca-palavra::after {
+    font-size:medium;
+    content: "!";
+    color: var(--texto-cor2);
+    animation: troca-palavra 20s infinite;
+}
+
+@keyframes troca-palavra {
+    0% { content: "Não se contente com menos - escolha a excelência do nosso sistema"; }
+  33% { content: "Confiança é tudo - nosso sistema garante qualidade e eficiência"; }
+  66% { content: "A escassez é uma oportunidade - nosso sistema ajuda você a aproveitá-la"; }
+  100% { content: "Não deixe a incerteza impedir o sucesso - nosso sistema garante precisão e confiança"; }
+}
