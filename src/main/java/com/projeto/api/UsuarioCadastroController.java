@@ -10,7 +10,7 @@ import static com.projeto.DBconn.getConnection;
 @RestController
 public class UsuarioCadastroController {
 
-	@PostMapping("cadastrarUsuario")
+	@PostMapping("/api/cadastrarUsuario")
 	public ResponseEntity<?> cadastrarUsuario(@RequestBody String jsonString) {
 		boolean isBadRequest = false;
 		String mensagemRetorno = "";

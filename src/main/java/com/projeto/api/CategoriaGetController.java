@@ -8,7 +8,7 @@ import com.projeto.*;
 @RestController
 public class CategoriaGetController {
 	
-	@GetMapping("getAllCategoria")
+	@GetMapping("/api/getAllCategoria")
 	public List<Categoria> getAllCategoria(){
 		List<Categoria> categorias = new ArrayList<>();
 		

@@ -9,7 +9,7 @@ import static com.projeto.DBconn.getConnection;
 @RestController
 public class ProdutoGETController {
 
-	@GetMapping("getProdutoById")
+	@GetMapping("/api/getProdutoById")
 	public Produto getProduto(@RequestParam(name = "id", required = true) long id) {
 
 		try (Connection conn = getConnection()) {
@@ -30,7 +30,7 @@ public class ProdutoGETController {
 	}
 	
 	
-	@GetMapping("getAllListaProdutos")
+	@GetMapping("/api/getAllListaProdutos")
 	public List<Produto> getAllListaProdutos() {
 		List<Produto> listaProdutos = new ArrayList<>();
 		try (Connection conn = getConnection()) {

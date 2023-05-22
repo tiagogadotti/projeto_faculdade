@@ -10,7 +10,7 @@ import static com.projeto.DBconn.getConnection;
 @RestController
 public class ProdutoPOSTController {
 
-	@GetMapping("updateProduto")
+	@GetMapping("/api/updateProduto")
 	public Produto updatetProduto(@RequestParam(name = "json", required = true) String json) {
 
 		try (Connection conn = getConnection()) {
@@ -22,7 +22,7 @@ public class ProdutoPOSTController {
 
 	}
 
-	@PostMapping("insertProduto")
+	@PostMapping("/api/insertProduto")
 	public Produto insertProduto(@RequestBody String jsonString) {
 
 		JSONObject json = new JSONObject(jsonString);

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class MarcaGetController {
 	
-	@GetMapping("getAllMarca")
+	@GetMapping("/api/getAllMarca")
 	public List<Marca> getAllCategoria(){
 		List<Marca> marcas = new ArrayList<>();
 		

@@ -2,8 +2,6 @@ package com.projeto.api;
 
 import java.time.LocalDate;
 
-import org.json.JSONException;
-
 public class Testes {
 
 	public static void main(String[] args) {

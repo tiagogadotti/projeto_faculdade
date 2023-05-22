@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Authorization {
-	@PostMapping("/login")
+	@PostMapping("/api/login")
 	public ResponseEntity<Boolean> login(@RequestBody String jsonString) {
 		boolean isAuthorized = false;
 		JSONObject json = new JSONObject(jsonString);
