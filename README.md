@@ -1,2 +1,2 @@
-# projeto_faculdade
-Projeto da Faculdade
+# Projeto da faculdade
+Este repositório contém o projeto da Faculdade.
