@@ -31,7 +31,6 @@ public class UsuarioCadastroController {
 			 testBlank("senha", senha);
 			 
 			 testAge(dataNascimento);
-			 
 			
 			try (Connection conn = getConnection()) {
 				String sql = "INSERT INTO usuario (id, nome, senha, email) VALUES(nextval('user_id_seq'),?,?,?)";
