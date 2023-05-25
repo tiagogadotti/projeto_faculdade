@@ -1,35 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spring Boot - Pagina Inicial</title>
+    <link rel="stylesheet" href="libs/bootstrap-5.3.0-alpha3-dist/css/bootstrap.css"> 
+    <link rel="stylesheet" type="text/css" href="style/style_produtos.css"> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="scripts/produtos.js"></script>
 </head>
-<body> 
-    <div id="cadastroProduto">
-        <div id="cadastroProduto">
-    <form action="">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome">
-        <br>
-        <label for="categoria">Categoria:</label>
-        <select name="categoria" id="categoria"></select>
-        <br>
-        <label for="marca">Marca:</label>
-        <select name="marca" id="marca"></select>
-        <br>
-        <label for="preco">Preço:</label>
-        <input type="number" id="preco" step="0.01">
-        <br>
-        <label for="qtdeEstoque">Quantidade em estoque:</label>
-        <input type="number" id="qtdeEstoque">
-        <br>
-        <button id="salvarProduto">Cadastrar Produto</button>
-    </form>
-</div>
+
+<body>
+    <div id="cadastroProduto"> 
+        <form action="">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome">
+            <br>
+            <label for="categoria">Categoria:</label>
+            <select name="categoria" id="categoria"></select>
+            <br>
+            <label for="marca">Marca:</label>
+            <select name="marca" id="marca"></select>
+            <br>
+            <label for="preco">Preço:</label>
+            <input type="number" id="preco" step="0.01">
+            <br>
+            <label for="qtdeEstoque">Quantidade em estoque:</label>
+            <input type="number" id="qtdeEstoque">
+            <br>
+            <button id="salvarProduto">Cadastrar Produto</button>
+        </form>
     </div>
-    <div id="productTableContainer"></div>
+
+
+
+    </div>
+
+    <table class="table table-bordered" id="productTableContainer"></table>
+
 </body>
+
 </html>

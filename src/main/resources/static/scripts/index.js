@@ -1,4 +1,28 @@
 $(document).ready(() => {
+
+    // ...
+
+    $("#divCriarConta").hide();
+
+    $("#cliqueAquiParaCadastrar").click(() => {
+        $(".login-form").hide();
+        $("#divCriarConta").show();
+        $("#entrarConta").hide();
+    });
+
+    $("#voltarLogin").click(() => {
+        $(".login-form").show();
+        $("#divCriarConta").hide();
+        $("#entrarConta").show();
+    });
+
+    // ...
+
+});
+
+ 
+  
+$(document).ready(() => {
     
     $("#teste").click(() => {
         window.location.href = 'produtos.html';
@@ -47,7 +71,7 @@ $(document).ready(() => {
 		console.log(json);
 		
 		$.ajax({
-			url: 'http://127.0.0.1:8081/cadastrarUsuario',
+			url: 'http://127.0.0.1:8081/api/cadastrarUsuario',
 			type: 'POST',
 			dataType: 'json',
 			contentType: 'application/json',
@@ -65,3 +89,6 @@ $(document).ready(() => {
 	})
 	
 })
+
+
+

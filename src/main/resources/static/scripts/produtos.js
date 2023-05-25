@@ -16,7 +16,7 @@ $(document).ready(() => {
 		}
 
 		$.ajax({
-			url: 'http://127.0.0.1:8081/insertProduto',
+			url: 'http://127.0.0.1:8081/api/insertProduto',
 			type: 'POST',
 			dataType: 'json',
 			contentType: 'application/json',
@@ -65,7 +65,7 @@ function displayProdutos(produtos) {
 
 function getProdutoById(numero) {
 	$.ajax({
-		url: 'http://127.0.0.1:8081/getProdutoById?id=' + numero,
+		url: 'http://127.0.0.1:8081/api/getProdutoById?id=' + numero,
 		type: 'GET',
 		dataType: 'json',
 		success: function(data) {
@@ -80,7 +80,7 @@ function getProdutoById(numero) {
 
 function getAllProdutos() {
 	$.ajax({
-		url: 'http://127.0.0.1:8081/getAllListaProdutos',
+		url: 'http://127.0.0.1:8081/api/getAllListaProdutos',
 		type: 'GET',
 		dataType: 'json',
 		success: function(data) {
@@ -94,7 +94,7 @@ function getAllProdutos() {
 
 function getAllCategoria() {
 	$.ajax({
-		url: 'http://127.0.0.1:8081/getAllCategoria',
+		url: 'http://127.0.0.1:8081/api/getAllCategoria',
 		type: 'GET',
 		dataType: 'json',
 		success: function(data) {
@@ -117,7 +117,7 @@ function getAllCategoria() {
 
 function getAllMarca() {
 	$.ajax({
-		url: 'http://127.0.0.1:8081/getAllMarca',
+		url: 'http://127.0.0.1:8081/api/getAllMarca',
 		type: 'GET',
 		dataType: 'json',
 		success: (data) => {

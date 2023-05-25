@@ -1,6 +1,182 @@
 @import url(/style/colors.css);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
 
-* {
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-form {
+    width: 80%;
+    text-align: center;
+}
+
+.background-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    height: 60vw;
+    max-width: 500px;
+    max-height: 650px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form-header {
+    margin-bottom: 10px;
+}
+
+.form-title {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    
+}
+
+/*CASO NECESSARIO TIRAR ISSO, ACHEI FEIO
+.slogan {
+    position: absolute;
+    bottom: 440px; 
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Poppins', sans-serif;
+}
+
+.troca-palavra::after {
+    content: "!";
+    color: var(--texto-cor2);
+    animation: troca-palavra 20s infinite;
+}
+
+@keyframes troca-palavra {
+    0% {
+        content: "Não se contente com menos - escolha a excelência do nosso sistema";
+    }
+
+    33% {
+        content: "Confiança é tudo - nosso sistema garante qualidade e eficiência";
+    }
+
+    66% {
+        content: "A escassez é uma oportunidade - nosso sistema ajuda você a aproveitá-la";
+    }
+
+    100% {
+        content: "Não deixe a incerteza impedir o sucesso - nosso sistema garante precisão e confiança";
+    }
+}
+
+*/
+
+
+.box-login,
+.box-senha {
+    display: flex;
+    margin-bottom: 50px;
+    align-items: center;
+
+}
+
+.box-login i,
+.box-senha i {
+    margin-right: 5px;
+}
+
+.custom-link {
+    text-decoration: none;
+    margin-top: 10px;
+    display: block;
+    text-align: left;
+
+}
+
+.btn-animation:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s;
+}
+
+.btn-animation:active {
+    transform: translateY(2px);
+}
+
+#entrarConta {
+    position: absolute;
+    bottom: 40px;
+}
+
+
+
+
+/* AGORA ALTERAR A DIV BOX-CRIAR*/
+
+.title_criar {
+    margin: 0;
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Poppins', sans-serif;
+}
+
+.nome-criar,
+.e-mail-criar,
+.senha-criar {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.data-criar {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.data-criar label {
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.data-criar input {
+    width: 60%; 
+    padding: 8px;
+    margin-top: 5px;
+    text-align: center; 
+    box-sizing: border-box; 
+}
+
+
+
+
+
+.box-criar{
+    width: 80%;
+    text-align: center;
+    
+}
+
+
+
+#criarConta {
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* {
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
@@ -8,19 +184,20 @@
     font-family: sans-serif;
     color: var(--cor-fonte);
 
-    
+
 }
+
 
 body {
     background-color: var(--cor-de-fundo2);
 }
 
-header  {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   gap: 1rem;
-   margin-top: 4rem;
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 4rem;
 }
 
 header a {
@@ -36,12 +213,22 @@ header a:hover {
 main {
     display: flex;
     gap: 2rem;
-
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     margin-top: 9rem;
 }
 
 main h2 {
     margin-top: 2.5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+
 }
 
 .box-entrar {
@@ -55,7 +242,7 @@ main h2 {
 
     margin: 2% 1%;
     padding: 0 0;
-    
+
     background-color: aliceblue;
     border-radius: 25px;
 }
@@ -64,7 +251,7 @@ main h2 {
     display: flex;
     flex-direction: column;
 
-  
+
     width: 50%;
     height: auto;
 }
@@ -78,9 +265,9 @@ main h2 {
     width: 50%;
     height: auto;
 
-   
+
     margin: 2% 2%;
-    
+
     background-color: aliceblue;
     border-radius: 25px;
 }
@@ -89,7 +276,7 @@ main h2 {
     display: flex;
     flex-direction: column;
 
-    
+
     width: 50%;
     height: auto;
 }
@@ -116,15 +303,26 @@ button {
 
 
 .troca-palavra::after {
-    font-size:medium;
+    font-size: medium;
     content: "!";
     color: var(--texto-cor2);
     animation: troca-palavra 20s infinite;
 }
 
 @keyframes troca-palavra {
-    0% { content: "Não se contente com menos - escolha a excelência do nosso sistema"; }
-  33% { content: "Confiança é tudo - nosso sistema garante qualidade e eficiência"; }
-  66% { content: "A escassez é uma oportunidade - nosso sistema ajuda você a aproveitá-la"; }
-  100% { content: "Não deixe a incerteza impedir o sucesso - nosso sistema garante precisão e confiança"; }
-}
+    0% {
+        content: "Não se contente com menos - escolha a excelência do nosso sistema";
+    }
+
+    33% {
+        content: "Confiança é tudo - nosso sistema garante qualidade e eficiência";
+    }
+
+    66% {
+        content: "A escassez é uma oportunidade - nosso sistema ajuda você a aproveitá-la";
+    }
+
+    100% {
+        content: "Não deixe a incerteza impedir o sucesso - nosso sistema garante precisão e confiança";
+    }
+}*/
