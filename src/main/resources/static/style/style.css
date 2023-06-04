@@ -1,6 +1,13 @@
 @import url(/style/colors.css);
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
 
+
+/*body {
+    background-image: url(/src/main/resources/static/image/imagemteste2.jpg);
+    background-size: cover;
+  }
+*/
+  
 main {
     display: flex;
     justify-content: center;
@@ -35,11 +42,14 @@ main {
 }
 
 .form-title {
-    margin: 0;
+    display: flex;
+    margin-top: 30px;
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
     
     
 }
@@ -85,6 +95,7 @@ main {
     display: flex;
     margin-bottom: 50px;
     align-items: center;
+    font-family: 'Poppins', sans-serif;
 
 }
 
@@ -98,6 +109,7 @@ main {
     margin-top: 10px;
     display: block;
     text-align: left;
+    font-family: 'Poppins', sans-serif;
 
 }
 
@@ -121,9 +133,8 @@ main {
 /* AGORA ALTERAR A DIV BOX-CRIAR*/
 
 .title_criar {
-    margin: 0;
+    margin-top: -40px;
     position: absolute;
-    top: 70px;
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Poppins', sans-serif;
@@ -162,8 +173,10 @@ main {
 
 
 .box-criar{
+    margin-top: 50px;
     width: 80%;
     text-align: center;
+    font-family: 'Poppins', sans-serif;
     
 }
 

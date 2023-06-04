@@ -2,43 +2,118 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spring Boot - Pagina Inicial</title>
-    <link rel="stylesheet" href="libs/bootstrap-5.3.0-alpha3-dist/css/bootstrap.css"> 
-    <link rel="stylesheet" type="text/css" href="style/style_produtos.css"> 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="scripts/produtos.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spring Boot - Pagina Inicial</title>
+  <link rel="stylesheet" href="libs/bootstrap-5.3.0-alpha3-dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="style/produtos.css">
+  <script src="scripts/produtos.js"></script>
 </head>
 
 <body>
-    <div id="cadastroProduto"> 
-        <form action="">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome">
-            <br>
-            <label for="categoria">Categoria:</label>
-            <select name="categoria" id="categoria"></select>
-            <br>
-            <label for="marca">Marca:</label>
-            <select name="marca" id="marca"></select>
-            <br>
-            <label for="preco">Preço:</label>
-            <input type="number" id="preco" step="0.01">
-            <br>
-            <label for="qtdeEstoque">Quantidade em estoque:</label>
-            <input type="number" id="qtdeEstoque">
-            <br>
-            <button id="salvarProduto">Cadastrar Produto</button>
-        </form>
+  <nav class="navbar navbar-light bg-light shadow">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1">Log Center</span>
+      <button class="navbar-toggler ml-auto order-first" type="button" data-bs-toggle="modal"
+        data-bs-target="#exampleModal">
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </div>
+  </nav>
 
-
-
+  <div class="modal true" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item custom-list-item" onclick="mostrarConteudo('cadastro')">Cadastro</li>
+            <li class="list-group-item custom-list-item" onclick="mostrarConteudo('estoque')">Estoque</li>
+            <li class="list-group-item custom-list-item" onclick="mostrarConteudo('ajuda')">Ajuda</li>
+            <li class="list-group-item custom-list-item" id="sairButton">Sair</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark btn-lg btn-animation" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <table class="table table-bordered" id="productTableContainer"></table>
+  <div id="cadastro" class="conteudo">
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 cadastro-1">
+      <form class="custom-form">
+        <div class="form-group">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="categoria">Categoria:</label>
+          <select name="categoria" id="categoria" class="form-control"></select>
+        </div>
+        <div class="form-group">
+          <label for="marca">Marca:</label>
+          <select name="marca" id="marca" class="form-control"></select>
+        </div>
+        <div class="form-group">
+          <label for="preco">Preço:</label>
+          <input type="number" id="preco" step="0.01" name="preco" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="qtdeEstoque">Quantidade em estoque:</label>
+          <input type="number" id="qtdeEstoque" name="qtdeEstoque" class="form-control">
+        </div>
+        <div class="form-group">
+          <button type="submit" id="salvarProduto" class="btn btn-dark btn-lg btn-animation">Cadastrar Produto</button>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <div id="estoque" class="conteudo" style="display: none;">
+    <!-- Conteúdo da página de estoque -->
+  </div>
+
+  <div id="ajuda" class="conteudo" style="display: none;">
+    <h1> COLOCAR DADOS DE AJUDA PARA MOSTRAR COMO FUNCIONA O SITE, ESTAVA PENSANDO EM BOX DIVIDIDAS SOBRE CADA ETAPA, EX
+      "BOX1 - CADASTRAR ITEM, BOX2 - CONSULTAR ITEM, BOX3 - ALTERAR VALOR DO ITEM"</h1>
+    <!-- Conteúdo da página de ajuda -->
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="libs/bootstrap-5.3.0-alpha3-dist/js/bootstrap.bundle.js"></script>
 
 </body>
 
 </html>
+
+
+
+
+
+<!--TESTES QUE DEIXEI SALVO -->
+
+<!--
+  <header>
+    <div class="leaft">
+      <h3> Logistica <span>Center</span></h3>
+    </div>
+    <div class="right">
+      <a href="#" class="sair_btn">Sair</a>
+    </div>
+  </header>
+  <!-- Sidebar inicio
+  <div class="sidebar">
+    <center>
+      <img src="" class="image" alt="">
+      <h2> Texto </h2>
+    </center>
+    <a href="#"><ion-icon name="archive-outline"></ion-icon><span>Cadastro</span></ion-icon></a>
+    <a href="#"><ion-icon name="clipboard-outline"><span>Estoque</span></ion-icon></a>
+    <a href="#"><ion-icon name="help-outline"></ion-icon><span>Ajuda</span></ion-icon></a>
+    <a href="#"><ion-icon name="exit-outline"></ion-icon><span>Sair</span></ion-icon></a>
+  </div>
+   Sidebar Final -->

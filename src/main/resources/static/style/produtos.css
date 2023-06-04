@@ -1,0 +1,120 @@
+@import url(/style/colors.css);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600&display=swap');
+
+body{
+  font-family: 'Poppins', sans-serif;
+}
+
+.modal {
+  width: 300px;
+  transition: opacity 0.5s ease;
+}
+
+.modal-content {
+  width: 300px;
+  transition: opacity 0.5s ease;
+}
+
+.list-group-item:hover {
+  background-color: rgba(59, 57, 57, 0.164) !important;
+}
+
+.model.show {
+  opacity: 1;
+}
+
+.modal-content.show {
+  transform: translateX(0);
+}
+
+.btn-animation {
+  margin-top: 5%;
+  padding: 0.25rem 0.75rem; /* Ajuste o padding conforme necessário */
+  font-size: 1rem; /* Ajuste o tamanho da fonte conforme necessário */
+  bottom: 1px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: normal
+}
+
+.btn-animation:houver {
+  transform: translateY(-2px);
+  transition: transform 0.2s;
+
+}
+
+.btn-animation:active {
+  transform: translateY(2px);
+}
+
+.cadastro-1 {
+  margin-top: 10%;
+}
+.form-control{
+  max-width: 900px;
+  width: 100%;
+}
+
+/*Nav Bar*/
+.custom-list-item {
+  cursor: pointer;
+}
+
+
+/*TESTES QUE DEIXEI SALVO*/
+
+/*
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+header{
+  position: fixed;
+  background: #1e4155;
+  padding: 20px;
+  width: 100px;
+  height: 30px;
+
+}
+.left h3{
+  color: #fff;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: 800;
+}
+.left span{
+  color: aqua;
+
+}
+.sair_btn{
+  padding: 5px;
+  background: #1e4155;
+  text-decoration: none;
+  float: right;
+  margin-top: -30pc;
+  margin-right: 40px;
+  border-radius: 2px;
+  font-size: 15px;
+  font-weight: 500;
+  color: blue;
+  transition: 0,5s;
+  transition-property: background;
+}
+.sair_btn:hover{
+  background: blueviolet;
+
+}
+.sidebar{
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  margin-top: 70px;
+
+
+}
+.sidebar .image{
+  width: 100px;
+  height: 100px;
+}*/

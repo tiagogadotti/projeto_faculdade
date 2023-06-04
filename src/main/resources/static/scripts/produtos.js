@@ -1,4 +1,28 @@
-
+function mostrarConteudo(conteudoId) {
+	var conteudos = document.getElementsByClassName('conteudo');
+	for (var i = 0; i < conteudos.length; i++) {
+	  conteudos[i].style.display = 'none';
+	}
+	document.getElementById(conteudoId).style.display = 'block';
+	fecharNavbar();
+  }
+  
+  function fecharNavbar() {
+	var navbarToggler = document.querySelector('.navbar-toggler');
+	var targetModal = navbarToggler.getAttribute('data-bs-target');
+	var modal = document.querySelector(targetModal);
+	var bootstrapModal = bootstrap.Modal.getInstance(modal);
+	bootstrapModal.hide();
+  }
+  
+  document.addEventListener('DOMContentLoaded', function() {
+	var sairButton = document.getElementById('sairButton');
+	sairButton.addEventListener('click', function() {
+	  window.location.href = 'index.html';
+	});
+  });
+  
+  
 
 $(document).ready(() => {
 	getAllCategoria();
