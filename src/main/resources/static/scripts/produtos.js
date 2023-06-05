@@ -118,7 +118,7 @@ function getAllProdutos() {
 
 function getAllCategoria() {
 	$.ajax({
-		url: 'http://127.0.0.1:8081/api/getAllCategoria',
+		url: 'http://127.0.0.1:8081/api/listCategoria',
 		type: 'GET',
 		dataType: 'json',
 		success: function(data) {

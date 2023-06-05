@@ -41,13 +41,9 @@ $(document).ready(() => {
 			dataType: 'json',
 			contentType: 'application/json',
 			data: JSON.stringify(json),
-			success: function(isAuthorized) {
-				if (!isAuthorized){
-					alert("Credenciais Inválidas!");
-				}else{
-					window.location.href = 'produtos.html';
-				}
-			},
+			success: 
+					window.location.href = 'produtos.html'
+			,
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.error('Error fetching data:', errorThrown);
 			}
@@ -66,18 +62,19 @@ $(document).ready(() => {
 			nome: $("#cadastroNome").val(),
 			email: $("#cadastroEmail").val(),
 			senha: $("#cadastroSenha").val(),
-			dataNascimento: $("#cadastroDataNascimento").val()
+			data_nascimento: $("#cadastroDataNascimento").val()
 		}
 		console.log(json);
 		
 		$.ajax({
-			url: 'http://127.0.0.1:8081/api/cadastrarUsuario',
+			url: 'http://127.0.0.1:8081/api/saveUsuario',
 			type: 'POST',
 			dataType: 'json',
 			contentType: 'application/json',
 			data: JSON.stringify(json),
 			success: function(response) {
 				console.log(JSON.stringify(response));
+				//Aqui pode mudar a exibição da Mensagems
 				window.alert(response.mensagem);
 			},
 			error: function(jqXHR, textStatus, errorThrown) {
