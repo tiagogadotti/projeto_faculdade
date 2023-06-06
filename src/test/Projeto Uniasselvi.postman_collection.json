@@ -115,7 +115,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"nome\": \"Leite Moça\",\r\n    \"preco\": 10.5466,\r\n\t\"quantidade_estoque\": 10,\r\n    \"marca\":{\r\n        \"nome\": \"Nestle\"\r\n        \"empresa\": \"Nestle\"\r\n    },\r\n    \"categoria\": {\r\n        \"nome\":\"massas\"\r\n    }\r\n}\r\n"
+					"raw": "{\r\n\t\"nome\": \"Nescau\",\r\n    \"preco\": 10.50,\r\n    \"quantidade_estoque\": 500,\r\n    \"marca\":{\r\n        \"nome\": \"Nestle\",\r\n        \"empresa\": \"Nestle SA\"\r\n    },\r\n    \"categoria\": {\r\n        \"nome\":\"Achocolatado\"\r\n    }\r\n}\r\n"
 				},
 				"url": {
 					"raw": "127.0.0.1:8081/api/saveProduto",
@@ -164,6 +164,44 @@
 			"response": []
 		},
 		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"teste@teste.com\",\r\n    \"nome\": \"Tiago\",\r\n    \"senha\": \"123456\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8081/api/login",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "listMarca",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -200,22 +238,16 @@
 		},
 		{
 			"name": "listProduto",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [
 					{
 						"key": "Content-Type",
 						"value": "application/json",
-						"type": "text"
+						"type": "text",
+						"disabled": true
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "127.0.0.1:8081/api/listProduto",
 					"host": [
@@ -249,10 +281,15 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": ""
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
 				},
 				"url": {
-					"raw": "127.0.0.1:8081/api/produtoById",
+					"raw": "127.0.0.1:8081/api/produtoById?id=4",
 					"host": [
 						"127",
 						"0",
@@ -267,8 +304,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "2",
-							"disabled": true
+							"value": "4"
 						}
 					]
 				}
@@ -291,7 +327,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "127.0.0.1:8081/api/deleteProdutoById",
+					"raw": "127.0.0.1:8081/api/deleteProdutoById?id=1",
 					"host": [
 						"127",
 						"0",
@@ -306,8 +342,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "2",
-							"disabled": true
+							"value": "1"
 						}
 					]
 				}
@@ -330,7 +365,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "127.0.0.1:8081/api/deleteMarcaById",
+					"raw": "127.0.0.1:8081/api/deleteMarcaById?id=2",
 					"host": [
 						"127",
 						"0",
@@ -345,8 +380,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "2",
-							"disabled": true
+							"value": "2"
 						}
 					]
 				}

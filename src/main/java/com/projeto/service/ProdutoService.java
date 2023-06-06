@@ -3,7 +3,6 @@ package com.projeto.service;
 
 import java.util.*;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
 import com.projeto.dto.ProdutoDTO;
 import com.projeto.model.*;
 import com.projeto.repository.*;

@@ -1,7 +1,6 @@
 package com.projeto.api;
 
 import java.util.*;
-import com.projeto.*;
 import com.projeto.dto.MarcaDTO;
 import com.projeto.model.Marca;
 import com.projeto.service.MarcaService;

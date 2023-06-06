@@ -1,7 +1,5 @@
 package com.projeto.api;
 
-import java.sql.*;
-import com.projeto.*;
 import com.projeto.dto.ProdutoDTO;
 import com.projeto.model.Produto;
 import com.projeto.service.ProdutoService;
@@ -22,17 +20,16 @@ public class ProdutoController {
 	}
 
 	@PostMapping("/api/saveProduto")
-	public ResponseEntity<?> saveProduto(@RequestBody ProdutoDTO produtoDto) {
+	public ResponseEntity<?> saveProduto(	 ProdutoDTO produtoDto) {
 		try {
 			Map<String, String> retorno = new HashMap<>();
-			retorno.put("mensagem", "Produto cadastrado com sucesso");
-			System.out.println(produtoDto);
 			service.saveProduto(produtoDto);
-			return new ResponseEntity<Map>(retorno, HttpStatus.CREATED);
+			retorno.put("mensagem", "Produto cadastrado com sucesso");
+			return new ResponseEntity<Map<String, String>>(retorno, HttpStatus.CREATED);
 		} catch (Exception e) {
 			Map<String, String> retorno = new HashMap<>();
 			retorno.put("mensagem", "Erro ao salvar produto: " + e.getMessage());
-			return new ResponseEntity<Map>(retorno, HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<Map<String, String>>(retorno, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	

@@ -12,7 +12,7 @@ $(document).ready(() => {
 			contentType: 'application/json',
 			data: JSON.stringify(json),
 			success: function(response) {
-				window.alert($("#nomeCategoria").val() + " CADASTRADO COM SUCESSO!");
+				window.alert($("#nomeCategoria").val() + " CADASTRADO COM SUCESSO!	");
 			},
 			error: function(xhr, status, error) {
 				console.log('Error: ' + error);

@@ -1,7 +1,6 @@
 package com.projeto.service;
 import java.time.LocalDate;
 
-import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,23 +10,12 @@ import com.projeto.repository.UsuarioRepository;
 
 @Service
 public class UsuarioService {
-	private String mensagem;
 	private final UsuarioRepository usuarioRepository;
 
-	@Autowired
 	public UsuarioService(UsuarioRepository usuarioRepository) {
 		this.usuarioRepository = usuarioRepository;
 	}
 	
-	public String getMensagem() {
-		return mensagem;
-	}
-
-	private void setMensagem(String mensagem) {
-		this.mensagem = mensagem;
-	}
-
-
 	public void saveUsuario(UsuarioDTO usuarioDto) throws Exception{
 		
 		checkIdade(usuarioDto.getDataNascimento());
