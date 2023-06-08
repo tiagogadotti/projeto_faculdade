@@ -64,6 +64,7 @@ function listCategoria() {
 		dataType: 'json',
 		success: function(data) {
 			const select = $('#categoria');
+			select.empty();
 			data.sort((a, b) => a.nome.localeCompare(b.nome));
 			data.forEach(item => {
 				const option = $('<option>', {
@@ -86,6 +87,7 @@ function listMarca() {
 		dataType: 'json',
 		success: (data) => {
 			const select = $("#marca");
+			select.empty();
 			data.sort((a, b) => a.nome.localeCompare(b.nome));
 			data.forEach(item => {
 				const option = $('<option>', {
@@ -136,12 +138,16 @@ function salvarProduto(){
 	console.log('clicoud');
 	const json = {
 		nome: $("#nome").val(),
-		marca: $("#marca").val(),
-		categoria: $("#categoria").val(),
+		marca: {
+			nome: $("#marca option:selected").text()
+		},
+		categoria: {
+				nome: $("#categoria	 option:selected").text()
+				},
 		preco: $("#preco").val(),
 		quantidadeEstoque: $("#qtdeEstoque").val(),
 	}
-	console.log($("#categoria").val());
+	console.log(json);
 	if ($("#categoria").val() == null) {alert("Cadastre Categoria!");return;};
 	if ($("#marca").val() === null) {alert("Cadastre Marca!");return;};
 
