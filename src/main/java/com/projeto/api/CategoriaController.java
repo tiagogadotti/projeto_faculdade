@@ -21,7 +21,8 @@ public class CategoriaController {
 			categoriaService.saveCategoria(categoriaDto);
 			return new ResponseEntity<CategoriaDTO>(categoriaDto, HttpStatus.CREATED);
 		} catch (Exception e) {
-			return new ResponseEntity<String>("ERRO AO CRIAR CATEGORIA: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<String>("ERRO AO CRIAR CATEGORIA: " + e.getMessage(),
+					HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
@@ -29,13 +30,13 @@ public class CategoriaController {
 	public ResponseEntity<?> listarCategorias() {
 		return new ResponseEntity<>(categoriaService.listarCategorias(), HttpStatus.OK);
 	}
-	
+
 	@DeleteMapping("/api/deleteCategoriasById")
 	public ResponseEntity<?> deleteCategoriasById(@RequestParam Long id) {
 		try {
 			categoriaService.deleteById(id);
 			return new ResponseEntity<>(HttpStatus.OK);
-		}catch (Exception e) {
+		} catch (Exception e) {
 			return new ResponseEntity<String>("ERRO: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}

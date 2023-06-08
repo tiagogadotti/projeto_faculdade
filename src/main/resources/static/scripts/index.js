@@ -41,11 +41,15 @@ $(document).ready(() => {
 			dataType: 'json',
 			contentType: 'application/json',
 			data: JSON.stringify(json),
-			success: 
-					window.location.href = 'produtos.html'
+			success: (responseData) =>{ 
+					console.log(responseData);
+					window.location.href = 'produtos.html';
+					}
 			,
 			error: function(jqXHR, textStatus, errorThrown) {
-				console.error('Error fetching data:', errorThrown);
+				const retorno = JSON.parse(jqXHR.responseText)
+				alert(retorno.erro);
+				console.error('Error fetching data:', responseData);
 			}
 		});
 	})
@@ -74,7 +78,6 @@ $(document).ready(() => {
 			data: JSON.stringify(json),
 			success: function(response) {
 				console.log(JSON.stringify(response));
-				//Aqui pode mudar a exibição da Mensagems
 				window.alert(response.mensagem);
 			},
 			error: function(jqXHR, textStatus, errorThrown) {

@@ -5,6 +5,7 @@ function mostrarConteudo(conteudoId) {
 	}
 	document.getElementById(conteudoId).style.display = 'block';
 	fecharNavbar();
+	listProduto();
   }
   
   function fecharNavbar() {
@@ -17,74 +18,28 @@ function mostrarConteudo(conteudoId) {
   
   document.addEventListener('DOMContentLoaded', function() {
 	var sairButton = document.getElementById('sairButton');
+
 	sairButton.addEventListener('click', function() {
 	  window.location.href = 'index.html';
 	});
+	listCategoria();
+	listMarca();
   });
-  
-  
 
-$(document).ready(() => {
-	getAllCategoria();
-	getAllMarca();
-	getAllProdutos();
-
-
-	$("#salvarProduto").click(() => {
-		const json = {
-			nome: $("#nome").val(),
-			marca: $("#marca").val(),
-			categoria: $("#categoria").val(),
-			preco: $("#preco").val(),
-			quantidadeEstoque: $("#qtdeEstoque").val(),
-		}
-
-		$.ajax({
-			url: 'http://127.0.0.1:8081/api/insertProduto',
-			type: 'POST',
-			dataType: 'json',
-			contentType: 'application/json',
-			data: JSON.stringify(json),
-			success: function(data) {
-				console.log(data);
-			},
-			error: function(jqXHR, textStatus, errorThrown) {
-				console.error('Error fetching data:', errorThrown);
-			}
-		});
-		getAllProdutos();
-	})
-})
-
-function displayProdutos(produtos) {
-	let table = $('<table>').addClass('productTable');
-	let headerRow = $('<tr>').append(
-		$('<th>').text('ID'),
-		$('<th>').text('Nome'),
-		$('<th>').text('Marca'),
-		$('<th>').text('Preço'),
-		$('<th>').text('Categoria'),
-		$('<th>').text('Quantidade Estoque'),
-		$('<th>').text('Editar'),
-		$('<th>').text('Excluir')
-	);
-	table.append(headerRow);
-
-
-	produtos.forEach(produto => {
-		let row = $('<tr>').append(
-			$('<td>').text(produto.id),
-			$('<td>').text(produto.nome),
-			$('<td>').text(produto.marca),
-			$('<td>').text(produto.preco),
-			$('<td>').text(produto.categoria),
-			$('<td>').text(produto.quantidadeEstoque)
-		);
-		table.append(row);
-	});
-
-	// Append the table to the container div
-	$('#productTableContainer').empty().append(table);
+function excluirProduto(e){
+    var row = $(e).closest('tr');
+    var id = row.find('td:eq(0)').text();   
+    $.ajax({
+      url: endpoint('/api/deleteProdutoById?id=' + id),
+      type: 'DELETE',
+      success: function() {
+        alert('Produto foi removido com sucesso');
+        row.remove();
+      },
+      error: function() {
+        alert('Erro ao tentar excluir o produto');
+      }
+    });	
 }
 
 function getProdutoById(numero) {
@@ -102,21 +57,7 @@ function getProdutoById(numero) {
 }
 
 
-function getAllProdutos() {
-	$.ajax({
-		url: 'http://127.0.0.1:8081/api/getAllListaProdutos',
-		type: 'GET',
-		dataType: 'json',
-		success: function(data) {
-			displayProdutos(data);
-		},
-		error: (jqXHR, textStatus, errorThrown) => {
-			console.error('Error fetching data:', textStatus, errorThrown);
-		}
-	});
-}
-
-function getAllCategoria() {
+function listCategoria() {
 	$.ajax({
 		url: 'http://127.0.0.1:8081/api/listCategoria',
 		type: 'GET',
@@ -138,10 +79,9 @@ function getAllCategoria() {
 	});
 }
 
-
-function getAllMarca() {
+function listMarca() {
 	$.ajax({
-		url: 'http://127.0.0.1:8081/api/getAllMarca',
+		url: 'http://127.0.0.1:8081/api/listMarca',
 		type: 'GET',
 		dataType: 'json',
 		success: (data) => {
@@ -160,4 +100,108 @@ function getAllMarca() {
 			console.error('Error fetching data:', textStatus, errorThrown);
 		}
 	})
+}
+function listProduto(){
+	  $.ajax({
+	    url: endpoint('/api/listProduto'),
+	    method: 'GET',
+	    success: function (data) {
+			console.log(data);
+			
+	      $('#tabelaProdutos tbody').empty();
+	      for (var i = 0; i < data.length; i++) {
+	        var produto = data[i];
+	        var novaLinha = $('<tr>');
+	        novaLinha.append($('<td>').text(produto.id));
+	        novaLinha.append($('<td>').text(produto.nome));
+	        novaLinha.append($('<td>').text(produto.categoria.nome));
+	        novaLinha.append($('<td>').text(produto.marca.nome));
+	        novaLinha.append($('<td>').text(produto.preco));
+	        novaLinha.append($('<td>').text(produto.quantidade_estoque));
+			novaLinha.append($('<td>').html('<span class="excluir" onclick="excluirProduto(this)">EXCLUIR</>'));
+	        $('#tabelaProdutos tbody').append(novaLinha);
+	      }
+	    },
+	    error: function (jqXHR, textStatus, errorThrown) {
+	      console.error('Error fetching data:', JSON.stringify(errorThrown));
+	    }
+	  });
+	}
+
+function endpoint(complemento){
+	return 'http://127.0.0.1:8081' + complemento;
+}
+
+function salvarProduto(){
+	console.log('clicoud');
+	const json = {
+		nome: $("#nome").val(),
+		marca: $("#marca").val(),
+		categoria: $("#categoria").val(),
+		preco: $("#preco").val(),
+		quantidadeEstoque: $("#qtdeEstoque").val(),
+	}
+	console.log($("#categoria").val());
+	if ($("#categoria").val() == null) {alert("Cadastre Categoria!");return;};
+	if ($("#marca").val() === null) {alert("Cadastre Marca!");return;};
+
+	$.ajax({
+		url: 'http://127.0.0.1:8081/api/saveProduto',
+		type: 'POST',
+		dataType: 'json',
+		contentType: 'application/json',
+		data: JSON.stringify(json),
+		success: function(data) {
+			console.log(data);
+			alert('Produto cadastrado com sucesso');
+		},
+		error: function(jqXHR, textStatus, errorThrown) {
+			console.error('Error fetching data:', errorThrown);
+		}
+	});
+}
+
+function salvarMarca(){
+	const json = {
+		nome: $('#novaMarca').val()
+	}
+	console.log(json);
+	$.ajax({
+		url: 'http://127.0.0.1:8081/api/saveMarca',
+		type: 'POST',
+		dataType: 'json',
+		contentType: 'application/json',
+		data: JSON.stringify(json),
+		success: function(data) {
+			console.log(data);
+			$('#marcaModal').modal('hide')	;
+		},
+		error: function(jqXHR, textStatus, errorThrown) {
+			console.error('Error fetching data:', errorThrown);
+		}
+	});
+	window.location.href = 'produtos.html'
+	
+}
+
+function salvarCategoria(){
+	const json = {
+		nome: $('#novaCategoria').val()
+	}
+	console.log(json);
+	$.ajax({
+		url: 'http://127.0.0.1:8081/api/saveCategoria',
+		type: 'POST',
+		dataType: 'json',
+		contentType: 'application/json',
+		data: JSON.stringify(json),
+		success: function(data) {
+			console.log(data);
+			$('#categoriaModal').modal('hide')	;
+		},
+		error: function(jqXHR, textStatus, errorThrown) {
+			console.error('Error fetching data:', errorThrown);
+		}
+	});
+	window.location.href = 'produtos.html'
 }

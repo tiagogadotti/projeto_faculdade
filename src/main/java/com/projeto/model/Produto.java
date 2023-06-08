@@ -2,6 +2,8 @@ package com.projeto.model;
 
 import java.math.BigDecimal;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -18,6 +20,7 @@ public class Produto {
 	@ManyToOne
 	private Categoria categoria;
 	@Column
+	@JsonProperty("quantidade_estoque")
 	private int quantidadeEstoque;
 
 	private Produto() {

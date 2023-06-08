@@ -20,7 +20,7 @@ public class ProdutoController {
 	}
 
 	@PostMapping("/api/saveProduto")
-	public ResponseEntity<?> saveProduto(	 ProdutoDTO produtoDto) {
+	public ResponseEntity<?> saveProduto(@RequestBody ProdutoDTO produtoDto) {
 		try {
 			Map<String, String> retorno = new HashMap<>();
 			service.saveProduto(produtoDto);
@@ -29,6 +29,7 @@ public class ProdutoController {
 		} catch (Exception e) {
 			Map<String, String> retorno = new HashMap<>();
 			retorno.put("mensagem", "Erro ao salvar produto: " + e.getMessage());
+			e.printStackTrace();
 			return new ResponseEntity<Map<String, String>>(retorno, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}

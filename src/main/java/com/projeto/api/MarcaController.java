@@ -18,12 +18,14 @@ public class MarcaController {
 		this.marcaService = marcaService;
 	}
 	@PostMapping("/api/saveMarca")
-	public ResponseEntity<String> saveMarca(@RequestBody MarcaDTO marcaDto){
+	public ResponseEntity<?> saveMarca(@RequestBody MarcaDTO marcaDto){
+		System.out.println(marcaDto);
 		try {
 			marcaService.saveMarca(marcaDto);
-			return new ResponseEntity<String>("Marca criada com sucesso!", HttpStatus.CREATED);
+			return new ResponseEntity<Map<String, String>>(Util.mapearRetornoSimples("mensagem", "Marca criada com sucesso!"), HttpStatus.CREATED);
 		}catch(Exception e){
-			return new ResponseEntity<String>("Erro: " + e.getMessage(), HttpStatus.CREATED);
+			e.printStackTrace();
+			return new ResponseEntity<Map<String, String>>(Util.mapearRetornoSimples("mensagem", e.getMessage()), HttpStatus.CREATED);
 		}
 	}
 	

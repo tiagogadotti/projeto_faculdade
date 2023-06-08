@@ -24,7 +24,7 @@ public class ProdutoService {
 	}
 
 	public void saveProduto(ProdutoDTO produtoDto) throws Exception {
-
+		
 		Marca marca = (Marca) marcaRepository.getByNome(produtoDto.getMarca().getNome().toUpperCase());
 		Categoria categoria = (Categoria) categoriaRepository.getCategoriaByNome(produtoDto.getCategoria().getNome().toUpperCase());
 		

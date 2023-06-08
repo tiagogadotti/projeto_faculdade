@@ -17,7 +17,7 @@ public class MarcaService {
 	}
 	
 	public void saveMarca(MarcaDTO marcaDto) {
-		Marca marca = new Marca(marcaDto.getId(), marcaDto.getNome(), marcaDto.getEmpresa());
+		Marca marca = new Marca(marcaDto.getId(), marcaDto.getNome().toUpperCase(), marcaDto.getEmpresa());
 		marcaRepository.save(marca);
 	}
 	

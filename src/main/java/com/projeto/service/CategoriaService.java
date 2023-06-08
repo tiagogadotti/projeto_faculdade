@@ -19,7 +19,7 @@ public class CategoriaService {
 	}
 	
 	public void saveCategoria(CategoriaDTO categoriaDto) throws Exception {
-		Categoria categoria = new Categoria(categoriaDto.getNome());
+		Categoria categoria = new Categoria(categoriaDto.getNome().toUpperCase());
 		categoriaRepository.save(categoria);
 	}
 	
