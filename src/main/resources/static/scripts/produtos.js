@@ -13,7 +13,10 @@ function mostrarConteudo(conteudoId) {
 	var targetModal = navbarToggler.getAttribute('data-bs-target');
 	var modal = document.querySelector(targetModal);
 	var bootstrapModal = bootstrap.Modal.getInstance(modal);
-	bootstrapModal.hide();
+	if (bootstrapModal !== null){
+		bootstrapModal.hide();	
+	}
+	
   }
   
   document.addEventListener('DOMContentLoaded', function() {
@@ -145,7 +148,7 @@ function salvarProduto(){
 				nome: $("#categoria	 option:selected").text()
 				},
 		preco: $("#preco").val(),
-		quantidadeEstoque: $("#qtdeEstoque").val(),
+		quantidade_estoque: $("#qtdeEstoque").val(),
 	}
 	console.log(json);
 	if ($("#categoria").val() == null) {alert("Cadastre Categoria!");return;};
@@ -211,3 +214,16 @@ function salvarCategoria(){
 	});
 	window.location.href = 'produtos.html'
 }
+
+//Aba Ajuda
+
+function toggleContent(element) {
+	var conteudo = element.nextElementSibling;
+	element.classList.toggle("expandido");
+	if (conteudo.style.display === "none") {
+	  conteudo.style.display = "block";
+	} else {
+	  conteudo.style.display = "none";
+	}
+  }
+  

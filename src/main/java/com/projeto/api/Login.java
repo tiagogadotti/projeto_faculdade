@@ -24,8 +24,8 @@ public class Login {
 	
 	@PostMapping("/api/login")	
 	public ResponseEntity<?> login(@RequestBody UsuarioDTO usuarioDTO) {
-		Usuario usuario = usuarioRepository.findByEmail(usuarioDTO.getEmail());
-		if (usuario == null) {
+		Usuario usuario = usuarioRepository.findByEmail(usuarioDTO.getEmail());		
+		if (usuario == null || !(usuario.getSenha().equals(usuarioDTO.getSenha()))) {
 			return  new ResponseEntity<Map<String, String>>(Util.mapearRetornoSimples("erro", "Credenciais inválidas!"), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		return new ResponseEntity<Map<String, String>>(Util.mapearRetornoSimples("mensagem", "Login efetivado com sucesso"), HttpStatus.OK);

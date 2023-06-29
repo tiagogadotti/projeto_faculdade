@@ -60,61 +60,43 @@ body{
 }
 
 
-/*TESTES QUE DEIXEI SALVO*/
-
-/*
-*{
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-}
-
-header{
-  position: fixed;
-  background: #1e4155;
-  padding: 20px;
-  width: 100px;
-  height: 30px;
-
-}
-.left h3{
-  color: #fff;
-  margin: 0;
-  text-transform: uppercase;
-  font-size: 22px;
-  font-weight: 800;
-}
-.left span{
-  color: aqua;
-
-}
-.sair_btn{
-  padding: 5px;
-  background: #1e4155;
-  text-decoration: none;
-  float: right;
-  margin-top: -30pc;
-  margin-right: 40px;
-  border-radius: 2px;
-  font-size: 15px;
-  font-weight: 500;
-  color: blue;
-  transition: 0,5s;
-  transition-property: background;
-}
-.sair_btn:hover{
-  background: blueviolet;
-
-}
-.sidebar{
-  position: fixed;
-  width: 250px;
-  height: 100%;
-  margin-top: 70px;
+/*ajuda*/ 
 
 
+.caixaAjuda {
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
 }
-.sidebar .image{
-  width: 100px;
-  height: 100px;
-}*/
+
+.titulo {
+  background-color: #f2f2f2;
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+  font-weight: bold;
+}
+
+.titulo::after {
+  content: "\25B8";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.titulo.expandido::after {
+  content: "\25BE";
+}
+
+.conteudo {
+  display: none;
+  padding: 10px;
+}
+.conteudo {
+  font-family: Arial, sans-serif;
+}
+
+.caixaAjuda .titulo,
+.caixaAjuda .conteudo {
+  margin-bottom: 10px; 
+}
